@@ -1,2 +1,1 @@
-belom jadi :D
-hjjkhjhjkjk
+cekk
