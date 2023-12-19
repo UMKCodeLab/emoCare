@@ -8,6 +8,17 @@
     />
     <title>Social - Network, Community and Event Theme</title>
     <link
+      href="https://unpkg.com/filepond/dist/filepond.css"
+      rel="stylesheet"
+    />
+
+    <!-- Add plugin styles -->
+    <link
+      href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+      rel="stylesheet"
+    />
+
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
     />
@@ -91,6 +102,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="index.html">Beranda</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ruangAspirasi.html">Aspirasi</a>
+              </li>
             </ul>
           </div>
           <ul
@@ -123,7 +137,9 @@
                 aria-labelledby="profileDropdown"
               >
                 <li>
-                  <a class="dropdown-item" href="settingProfile.html">Profile &amp; Settings</a>
+                  <a class="dropdown-item" href="settingProfile.html"
+                    >Profile &amp; Settings</a
+                  >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#" target="_blank"
@@ -231,14 +247,17 @@
                       alt=""
                   /></a>
                 </div>
-                <form class="w-100">
-                  <textarea
-                    class="border-0 form-control form-control form-control pe-4"
-                    data-autoresize=""
-                    placeholder="Share your thoughts..."
-                    rows="2"
-                  ></textarea>
-                </form>
+                <div class="w-100 ">
+                  <input 
+                  type="text"
+                  class="border-0 form-control form-control form-control pe-4"
+                  placeholder="Share your thoughts..."
+                  data-bs-target="#feedActionPhoto"
+                  data-bs-toggle="modal"
+                  readonly
+                  href="#"
+                  >
+                </div>
               </div>
               <ul class="nav nav-pills fw-normal nav-stack small">
                 <li class="nav-item">
@@ -247,12 +266,13 @@
                     data-bs-target="#feedActionPhoto"
                     data-bs-toggle="modal"
                     href="#"
-                    >    
-                    <i style="width: 14px;" class="mb-1" data-feather="camera">
-                    </i>&nbsp;Photo</a
+                  >
+                    <i style="width: 14px" class="mb-1" data-feather="camera">
+                    </i
+                    >&nbsp;Photo</a
                   >
                 </li>
-                <li class="nav-item"></li>
+                <!-- <li class="nav-item"></li>
                 <li class="nav-item ms-lg-auto dropdown">
                   <a
                     class="nav-link bg-light py-1 px-2 mb-0"
@@ -260,11 +280,116 @@
                     data-bs-toggle="dropdown"
                     href="#"
                     id="feedActionShare"
-                    >
-                    <i style="width: 14px;" data-feather="send"></i>
+                  >
+                    <i style="width: 14px" data-feather="send"></i>
                   </a>
-                </li>
+                </li> -->
               </ul>
+
+              <!-- create post start -->
+              <div
+                class="modal fade"
+                role="dialog"
+                tabindex="-1"
+                id="feedActionPhoto"
+                aria-labelledby="feedActionPhotoLabel"
+                aria-hidden="true"
+              >
+                <form method="post">
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Buat Postingan
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Your existing form fields go here -->
+                        <div class="form-group row mb-4">
+                          <div class="col-sm-12">
+                            <textarea
+                              class="form-control"
+                              rows="5"
+                              name="content"
+                              id="contentTextarea"
+                              placeholder="Apa yang Anda pikirkan?"
+                            ></textarea>
+                          </div>
+                        </div>
+
+                        <div class="form-group row mb-4">
+                          <label
+                            class="col-form-label text-md-right col-12 col-md-3 col-lg-3"
+                            >Tags</label
+                          >
+                          <div class="col-sm-12 col-md-7">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="tags"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                          <label
+                            class="col-form-label text-md-right col-12 col-md-3 col-lg-3"
+                            for="anonimCheckbox"
+                            >Post anonim</label
+                          >
+                          <div
+                            class="col-sm-12 col-md-7 d-flex align-items-center"
+                          >
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value="Anonim"
+                                id="anonimCheckbox"
+                                name="anonimCheckbox"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                          <label
+                            class="col-form-label text-md-right col-12 col-md-3 col-lg-3"
+                            >Upload Gambar</label
+                          >
+                          <div class="col-sm-12 col-md-7">
+                            <input
+                              type="file"
+                              class="form-control"
+                              name="profile-picture"
+                              tabindex="4"
+                              accept="image/*"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="submit"
+                          class="btn btn-secondary w-100"
+                          id="uploadButton"
+                          disabled=""
+                        >
+                          Upload
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- create post end-->
             </div>
             <div class="card">
               <div class="card-header border-0 pb-0">
@@ -282,7 +407,7 @@
                         </div>
                         <div class="nav nav-divider">
                           <h6 class="nav-item card-title mb-0">Entah Siapa</h6>
-                          <span class="nav-item small ">12 menit </span>
+                          <span class="nav-item small">12 menit </span>
                         </div>
                       </div>
                       <p class="mb-0 small" style="margin-top: 5px">
@@ -298,8 +423,8 @@
                       id="cardFeedAction-1"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
-                      >
-                      <i style="width: 16px;" data-feather="settings"></i>
+                    >
+                      <i style="width: 16px" data-feather="settings"></i>
                     </a>
                     <ul
                       class="dropdown-menu dropdown-menu-end"
@@ -335,11 +460,12 @@
                 />
                 <ul class="nav nav-stack py-3 small">
                   <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="komentar.html"
-                      >
-                      <i style="width: 20px; " class="mb-1" data-feather="message-circle"></i>
+                    <a class="nav-link" href="komentar.html">
+                      <i
+                        style="width: 20px"
+                        class="mb-1"
+                        data-feather="message-circle"
+                      ></i>
                       Comments (12)</a
                     >
                   </li>
@@ -373,8 +499,8 @@
                       id="cardFeedAction"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
-                      >
-                      <i style="width: 16px;" data-feather="settings"></i>
+                    >
+                      <i style="width: 16px" data-feather="settings"></i>
                     </a>
                     <ul
                       class="dropdown-menu dropdown-menu-end"
@@ -407,7 +533,12 @@
                       class="nav-link"
                       href="komentar.html"
                       style="padding-left: 0px"
-                      > <i style="width: 20px; " class="mb-1" data-feather="message-circle"></i>
+                    >
+                      <i
+                        style="width: 20px"
+                        class="mb-1"
+                        data-feather="message-circle"
+                      ></i>
                       Comments (12)</a
                     >
                   </li>
@@ -469,7 +600,7 @@
                       </p>
                       <a href="ruangAspirasi.html"
                         >Learn More
-                        <i style="width: 16px;" data-feather="arrow-right"></i>
+                        <i style="width: 16px" data-feather="arrow-right"></i>
                       </a>
                     </div>
                     <div
@@ -491,7 +622,7 @@
                       </p>
                       <a href="ruangAspirasi.html"
                         >Learn More
-                        <i style="width: 16px;" data-feather="arrow-right"></i>
+                        <i style="width: 16px" data-feather="arrow-right"></i>
                       </a>
                     </div>
                     <div
@@ -513,7 +644,7 @@
                       </p>
                       <a href="ruangAspirasi.html"
                         >Learn More
-                        <i style="width: 16px;" data-feather="arrow-right"></i>
+                        <i style="width: 16px" data-feather="arrow-right"></i>
                       </a>
                     </div>
                     <div
@@ -535,7 +666,7 @@
                       </p>
                       <a href="ruangAspirasi.html"
                         >Learn More
-                        <i style="width: 16px;" data-feather="arrow-right"></i>
+                        <i style="width: 16px" data-feather="arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -546,8 +677,39 @@
         </div>
       </div>
     </main>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script>
+      FilePond.registerPlugin(
+        // register the Image Crop plugin with FilePond
+        FilePondPluginImagePreview
+      );
+
+      const inputElement = document.querySelector('input[type="file"]');
+      const pond = FilePond.create(inputElement);
+      const contentTextarea = document.getElementById('contentTextarea');
+      const uploadButton = document.getElementById('uploadButton');
+
+      contentTextarea.addEventListener('input', validateInputs);
+
+      function validateInputs() {
+        if (contentTextarea.value.trim() !== '') {
+          uploadButton.removeAttribute('disabled');
+          uploadButton.classList.remove('btn-secondary');
+          uploadButton.classList.add('btn-primary');
+        } else {
+          uploadButton.setAttribute('disabled', 'disabled');
+          uploadButton.classList.remove('btn-primary');
+          uploadButton.classList.add('btn-secondary');
+        }
+      }
+    </script>
+
     <script src="https://unpkg.com/feather-icons"></script>
-    <script>feather.replace();</script>
+    <script>
+      feather.replace();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
