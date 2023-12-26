@@ -13,9 +13,7 @@
   </head>
   <body>
     <div
-      id="registrationForm"
-      class="container justify-content-center align-items-center vh-100"
-      style="display: flex"
+      class="container justify-content-center align-items-center vh-100 d-flex"
     >
       <div class="col-lg-6 col-xl-4">
         <div class="card">
@@ -95,130 +93,14 @@
         </div>
       </div>
     </div>
-
-    <div
-      id="bioDataFormContainer"
-      class="container justify-content-center align-items-center vh-100"
-      style="display: none"
-    >
-      <div class="col-lg-6 col-xl-8">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="text-center text-primary">Bio Data</h2>
-            <h5 class="text-center mb-4">(opsional)</h5>
-            <form method="POST" action="#">
-              <!-- Bio Data -->
-              <!-- Full Name input -->
-              <div class="mb-3 row">
-                <!-- First Name input -->
-                <div class="col-md-6">
-                  <label for="bio-firstname" class="form-label"
-                    >Nama Depan</label
-                  >
-                  <input
-                    id="bio-firstname"
-                    type="text"
-                    class="form-control"
-                    name="bio-firstname"
-                    tabindex="5"
-                  />
-                </div>
-
-                <!-- Last Name input -->
-                <div class="col-md-6">
-                  <label for="bio-lastname" class="form-label"
-                    >Nama Belakang</label
-                  >
-                  <input
-                    id="bio-lastname"
-                    type="text"
-                    class="form-control"
-                    name="bio-lastname"
-                    tabindex="6"
-                  />
-                </div>
-              </div>
-
-              <div class="mb-3 row">
-                <!-- Upload Foto Profil input -->
-                <div class="col-md-6">
-                  <label for="profile-picture" class="form-label"
-                    >Upload Foto Profil</label
-                  >
-                  <input
-                    id="profile-picture"
-                    type="file"
-                    class="form-control"
-                    name="profile-picture is-valid"
-                    tabindex="4"
-                    accept="image/*"
-                  />
-                </div>
-
-                <!-- Tanggal lahir input -->
-                <div class="col-md-6">
-                  <label for="bio-dob" class="form-label">Tanggal Lahir</label>
-                  <input
-                    id="bio-dob"
-                    type="date"
-                    class="form-control"
-                    name="bio-dob"
-                    tabindex="7"
-                  />
-                </div>
-              </div>
-
-              <!-- Status input -->
-              <div class="mb-3">
-                <label for="bio-status" class="form-label">Status</label>
-                <textarea
-                  id="bio-status"
-                  class="form-control"
-                  name="bio-status"
-                  rows="2"
-                  tabindex="8"
-                  maxlength="300"
-                ></textarea>
-                <div class="form-text text-muted">
-                  Masukkan status Anda (maksimal 300 karakter).
-                </div>
-              </div>
-
-              <!-- Optional Skip Button -->
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-secondary mb-3">
-                  Lewati
-                </button>
-              </div>
-
-              <!-- Submit button -->
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary mb-4">
-                  Simpan Bio Data
-                </button>
-              </div>
-
-              <div class="mt-3 text-muted text-center">
-                <a href="register.html">Kembali ke Halaman Pendaftaran</a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script>
-      function showBioDataForm() {
-        document.getElementById('registrationForm').style.display = 'none';
-        document.getElementById('bioDataFormContainer').style.display = 'flex';
-      }
       let forms = document.querySelectorAll('.needs-validation');
 
       Array.prototype.slice.call(forms).forEach(function (form) {
         form.addEventListener('submit', function (event) {
-          event.preventDefault();
           if (!form.checkValidity()) {
             event.stopPropagation();
+            event.preventDefault();
           } else {
             showBioDataForm();
           }
