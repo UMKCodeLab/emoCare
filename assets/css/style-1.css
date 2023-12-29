@@ -6174,7 +6174,7 @@ textarea.form-control-lg {
   float: left;
   padding-right: var(--bs-breadcrumb-item-padding-x);
   color: var(--bs-breadcrumb-divider-color);
-  content: var(--bs-breadcrumb-divider, "/");
+  content: var(--bs-breadcrumb-divider, "/") ;
 }
 
 .breadcrumb-item.active {
@@ -8007,8 +8007,8 @@ textarea.form-control-lg {
 
 @keyframes spinner-border {
   to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg) ;
+    transform: rotate(360deg) ;
   }
 }
 
